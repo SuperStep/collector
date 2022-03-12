@@ -1,0 +1,56 @@
+[non-job]: 2022-03-13 01:38:53 INFO - Starting execution.
+[non-job]: 2022-03-13 01:38:53 INFO - Version: Norconex HTTP Collector 2.9.1 (Norconex Inc.)
+[non-job]: 2022-03-13 01:38:53 INFO - Version: Norconex Collector Core 1.10.1 (Norconex Inc.)
+[non-job]: 2022-03-13 01:38:53 INFO - Version: Norconex Importer 2.11.0 (Norconex Inc.)
+[non-job]: 2022-03-13 01:38:53 INFO - Version: Norconex JEF 4.1.3 (Norconex Inc.)
+[non-job]: 2022-03-13 01:38:53 INFO - Version: Norconex Committer Core 2.1.3 (Norconex Inc.)
+[non-job]: 2022-03-13 01:38:53 INFO - Version: "KafkaCommiter" version is undefined.
+testing: 2022-03-13 01:38:53 INFO - Running testing: BEGIN (Sun Mar 13 01:38:53 MSK 2022)
+testing: 2022-03-13 01:38:53 INFO - testing: RobotsTxt support: true
+testing: 2022-03-13 01:38:53 INFO - testing: RobotsMeta support: true
+testing: 2022-03-13 01:38:53 INFO - testing: Sitemap support: true
+testing: 2022-03-13 01:38:53 INFO - testing: Canonical links support: true
+testing: 2022-03-13 01:38:53 INFO - testing: User-Agent: <None specified>
+testing: 2022-03-13 01:38:54 INFO - testing: Initializing sitemap store...
+testing: 2022-03-13 01:38:54 INFO - testing: Done initializing sitemap store.
+testing: 2022-03-13 01:38:56 INFO - Resolving sitemap: https://www.stuff.co.nz/sitemap_index.xml
+testing: 2022-03-13 01:38:56 ERROR - Could not obtain sitemap: https://www.stuff.co.nz/sitemap_index.xml.  Expected status code 200, but got 403
+testing: 2022-03-13 01:38:56 INFO - Resolving sitemap: https://www.stuff.co.nz/sitemap.xml
+testing: 2022-03-13 01:38:57 ERROR - Could not obtain sitemap: https://www.stuff.co.nz/sitemap.xml.  Expected status code 200, but got 403
+testing: 2022-03-13 01:38:57 INFO - 1 start URLs identified.
+testing: 2022-03-13 01:38:57 INFO - testing:           CRAWLER_STARTED
+testing: 2022-03-13 01:38:57 INFO - testing: Crawling references...
+testing: 2022-03-13 01:38:57 INFO - testing:       REJECTED_BAD_STATUS: https://www.stuff.co.nz
+testing: 2022-03-13 01:38:57 INFO - Max queue size reached (1). Committing
+testing: 2022-03-13 01:38:57 INFO - Committing 1 files
+testing: 2022-03-13 01:39:57 ERROR - Error committing to mongodb: 
+org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic articles not present in metadata after 60000 ms.
+	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:574)
+	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:363)
+	at com.sust.collector.comitter.KafkaCommiter.commitDeleteOperation(KafkaCommiter.java:66)
+	at com.sust.collector.comitter.KafkaCommiter.commitBatch(KafkaCommiter.java:56)
+	at com.norconex.committer.core.AbstractBatchCommitter.commitAndCleanBatch(AbstractBatchCommitter.java:179)
+	at com.norconex.committer.core.AbstractBatchCommitter.cacheOperationAndCommitIfReady(AbstractBatchCommitter.java:208)
+	at com.norconex.committer.core.AbstractBatchCommitter.commitDeletion(AbstractBatchCommitter.java:148)
+	at com.norconex.committer.core.AbstractFileQueueCommitter.commit(AbstractFileQueueCommitter.java:225)
+	at com.norconex.committer.core.AbstractCommitter.commitIfReady(AbstractCommitter.java:146)
+	at com.norconex.committer.core.AbstractCommitter.remove(AbstractCommitter.java:113)
+	at com.norconex.collector.core.crawler.AbstractCrawler.deleteReference(AbstractCrawler.java:799)
+	at com.norconex.collector.core.crawler.AbstractCrawler.finalizeDocumentProcessing(AbstractCrawler.java:696)
+	at com.norconex.collector.core.crawler.AbstractCrawler.processNextQueuedCrawlData(AbstractCrawler.java:557)
+	at com.norconex.collector.core.crawler.AbstractCrawler.processNextReference(AbstractCrawler.java:419)
+	at com.norconex.collector.core.crawler.AbstractCrawler$ProcessReferencesRunnable.run(AbstractCrawler.java:829)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Topic articles not present in metadata after 60000 ms.
+testing: 2022-03-13 01:39:57 INFO - testing: DOCUMENT_COMMITTED_REMOVE: https://www.stuff.co.nz
+testing: 2022-03-13 01:39:57 INFO - testing: 100% completed (1 processed/1 total)
+testing: 2022-03-13 01:39:57 INFO - testing: Reprocessing any cached/orphan references...
+testing: 2022-03-13 01:39:57 INFO - testing: Crawler finishing: committing documents.
+testing: 2022-03-13 01:39:57 INFO - testing: 1 reference(s) processed.
+testing: 2022-03-13 01:39:57 INFO - testing:          CRAWLER_FINISHED
+testing: 2022-03-13 01:39:57 INFO - testing: Crawler completed.
+testing: 2022-03-13 01:39:57 INFO - testing: Crawler executed in 1 minute 4 seconds.
+testing: 2022-03-13 01:39:57 INFO - testing: Closing sitemap store...
+testing: 2022-03-13 01:39:57 INFO - Running testing: END (Sun Mar 13 01:38:53 MSK 2022)
